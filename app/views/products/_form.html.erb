@@ -1,0 +1,56 @@
+
+<%= form_with model: @product do |form| %>
+
+<div>
+    <%= form.label :Title %></br>
+    <%= form.text_field :title %>
+    <% @product.errors.full_messages_for(:title).each do |message| %>
+        <%= message %>
+    <% end %>
+</div>
+
+<div>
+    <%= form.label :Description %></br>
+    <%= form.text_area :description %>
+    <% @product.errors.full_messages_for(:description).each do |message| %>
+        <%= message %>
+    <% end %>
+</div>
+
+<div>
+    <%= form.label :Price %></br>
+    <%= form.number_field :price %>
+    <% @product.errors.full_messages_for(:price).each do |message| %>
+        <%= message %>
+    <% end %>
+</div>
+
+<div>
+    <%= form.label :Capacity %></br>
+    <%= form.number_field :capacity %>
+    <% @product.errors.full_messages_for(:capacity).each do |message| %>
+        <%= message %>
+    <% end %>
+</div>
+
+<div>
+    <%= form.label :Is_active %></br>
+    <%= form.check_box :is_active %>
+    <% @product.errors.full_messages_for(:is_active).each do |message| %>
+        <%= message %>
+    <% end %>
+</div>
+
+<div>
+    <%= form.label :Status %></br>
+    <%= form.select :status, ['in_stock', 'out_of_stock', 'coming_soon'] %>
+    <% @product.errors.full_messages_for(:status).each do |message| %>
+        <%= message %>
+    <% end %>
+</div>
+<div>
+    <%= form.submit %></br>
+</div>
+<% end %>
+
+

@@ -1,0 +1,41 @@
+
+<%= form_with model: @customer do |form| %>
+
+<div>
+    <%= form.label :First_name %></br>
+    <%= form.text_field :fname %>
+    <% @customer.errors.full_messages_for(:fname).each do |message| %>
+        <%= message %>
+    <% end %>
+</div>
+
+<div>
+    <%= form.label :Last_name %></br>
+    <%= form.text_field :lname %>
+    <% @customer.errors.full_messages_for(:lname).each do |message| %>
+        <%= message %>
+    <% end %>
+</div>
+
+<div>
+    <%= form.label :Email_id %></br>
+    <%= form.text_field :email %>
+    <% @customer.errors.full_messages_for(:email).each do |message| %>
+        <%= message %>
+    <% end %>
+</div>
+
+<div>
+    <%= form.label :Phone_number %></br>
+    <%= form.number_field :phone_number %>
+    <% @customer.errors.full_messages_for(:phone_number).each do |message| %>
+        <%= message %>
+    <% end %>
+</div>
+
+<div>
+    <%= form.submit %></br>
+</div>
+<% end %>
+
+

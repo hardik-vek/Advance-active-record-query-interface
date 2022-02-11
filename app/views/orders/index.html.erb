@@ -1,0 +1,25 @@
+
+<center>
+
+
+    <h1>Order Listing </h1>
+
+    <table> 
+        <th>Product title</th>
+        <th colspan='3'>Actions</th>
+        <% @orders.each do |order| %>
+    <tr>
+        <td><%= order.product.title %></td>
+        <td><%= button_to "Show", order_path(order), method: :get%></td>
+        <td><%= button_to "Edit", edit_order_path(order), method: :get%></td>
+        <td><%= button_to "Delete", order_path(order), method: :delete%></td>
+    </tr>
+    <% end %>
+    </table>
+</center>
+
+<center>
+    <div>
+        <%= link_to "new order", new_order_path, method: :get %>
+    </div>
+</center>

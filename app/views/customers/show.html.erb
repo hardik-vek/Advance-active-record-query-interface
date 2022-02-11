@@ -1,0 +1,24 @@
+
+<center>
+
+    <table> 
+        <th>First_name</th>
+        <th>Last_name</th>
+        <th>Email_id</th>
+        <th>Phone_number</th>
+        <th colspan=3 >Actions</th>
+
+        <tr>
+            <td><%= @customer.fname %></td>
+            <td><%= @customer.lname %></td>
+            <td><%= @customer.email %></td>
+            <td><%= @customer.phone_number %></td>
+            <td><%= button_to "Edit", edit_customer_path(@customer), method: :get %></td>
+            <td><%= button_to "Delete", customer_path(@customer), method: :delete %></td>
+            <td><%= button_to "back", customers_path, method: :get %></td>
+        </tr>
+
+    </table>
+
+</center>
+
