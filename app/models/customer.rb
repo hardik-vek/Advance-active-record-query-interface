@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Customer < ApplicationRecord
   validates :fname, :lname, :email, :phone_number, presence: true
   validates :email, uniqueness: true

@@ -14,7 +14,8 @@
         <tr>
             <td><%= @order.product.title %></td>
             <td><%= @order.quantity %></td>
-            <td><%= @order.quantity * @order.product.price %></td>
+            <td><%= @order.total_price %></td>
+            <%#= @order.quantity * @order.product.price %>
             <td><%= @order.status %></td>
             <td><%= @order.customer.fname + " " +@order.customer.lname %></td>
             <td><%= @order.customer.email %></td>
@@ -27,3 +28,4 @@
     </table>
 
 </center>
+

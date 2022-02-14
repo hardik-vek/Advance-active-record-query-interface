@@ -125,7 +125,7 @@
         <% Order.group("customer_id").having(status:'cancelled').reverse_order.first(5).each do |a| %>
 
         <p>
-            <strong> Total no of booked order:</strong>
+            <strong> Total no of cancelled order:</strong>
             <%= Order.where(customer_id:a.customer_id).where(status:'cancelled').count %>
         </p>
 
@@ -154,3 +154,4 @@
 
     </center>
 </div>
+

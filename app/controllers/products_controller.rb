@@ -54,3 +54,4 @@ class ProductsController < ApplicationController
     @product = Product.unscoped.find(params[:id])
   end
 end
+

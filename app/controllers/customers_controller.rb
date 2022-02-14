@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class CustomersController < ApplicationController
   before_action :create_customer, only: %i[show edit update destroy]
 
@@ -49,3 +50,4 @@ class CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
   end
 end
+

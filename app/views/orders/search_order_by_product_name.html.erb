@@ -1,0 +1,37 @@
+<body>
+  <table class="table table-striped">
+
+    <tr><td>
+    
+    <div>
+    <%= form_tag orders_search_order_by_product_name_path, :method => 'get', class: 'input-group'  do %>
+      <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: 'Search by product name' %>
+      <span >
+        <%= submit_tag "search"%>
+      </span>
+    <% end %>
+    </div>
+    </td></tr>
+
+    <% if params[:search]%>
+    <tr>
+        <td>Order Id</td>
+        <td>Product Name</td>
+        <td>Quantity</td>
+        <td>Total Price</td>
+        <td>Order Status</td>
+    </tr>
+    <% @order_id.each do |s| %>
+    <tr>
+        <td><%=s.id %></td>
+        <td><%=s.product.title %></td>
+        <td><%=s.quantity%></td>
+        <td><%=s.total_price%></td>
+        <td><%=s.status%></td>
+    </tr>
+    <% end %>
+    <tr><td colspan="5"><center><%= link_to "back to Order page",orders_path %></center></td></tr>
+    <% end %>
+  </table>
+</body>
+

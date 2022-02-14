@@ -2,6 +2,7 @@
 Rails.application.routes.draw do
   root "homes#index"
   get 'products/default_scoped'
+  get 'orders/search_order_by_product_name'
   resources :products
   resources :customers
   resources :orders
@@ -10,3 +11,4 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 end
+
