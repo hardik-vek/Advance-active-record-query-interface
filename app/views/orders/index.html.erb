@@ -5,8 +5,8 @@
     <tr><center>Orders Details </center></tr>
     <tr><td colspan="5"><center>Orders Details </center></td><td colspan="5">
     <div>
-    <%= form_tag orders_path, :method => 'get', class: 'input-group'  do %>
-      <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: 'Search by order status' %>
+    <%= form_tag orders_path, method: :get do %>
+      <%= text_field_tag :search, params[:search], placeholder: 'Search by order status' %>
       <span >
         <%= submit_tag "search" %>
       </span>

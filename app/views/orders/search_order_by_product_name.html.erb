@@ -1,11 +1,11 @@
 <body>
-  <table class="table table-striped">
+  <table>
 
     <tr><td>
     
     <div>
-    <%= form_tag orders_search_order_by_product_name_path, :method => 'get', class: 'input-group'  do %>
-      <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: 'Search by product name' %>
+    <%= form_tag orders_search_order_by_product_name_path, method: :get do %>
+      <%= text_field_tag :search, params[:search], placeholder: 'Search by product name' %>
       <span >
         <%= submit_tag "search"%>
       </span>
