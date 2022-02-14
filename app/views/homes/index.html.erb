@@ -86,7 +86,7 @@
 <div>
     <center>
         <h2>most booked order of product</h2>
-        <% Order.group("customer_id").having(status:'booked').reverse_order.first(5).each do |a| %>
+        <% Order.group("customer_id").having(status:'booked').first(5).each do |a| %>
 
         <p>
             <strong> Total no of booked order:</strong>
@@ -122,7 +122,7 @@
 <div>
     <center>
         <h2>most cancelled order of product</h2>
-        <% Order.group("customer_id").having(status:'cancelled').reverse_order.first(5).each do |a| %>
+        <% Order.group("customer_id").having(status:'cancelled').first(5).each do |a| %>
 
         <p>
             <strong> Total no of cancelled order:</strong>
