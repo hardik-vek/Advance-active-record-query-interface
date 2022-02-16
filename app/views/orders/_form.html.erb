@@ -1,0 +1,49 @@
+
+<%= form_with model: @order do |form| %>
+
+<div>
+    <%= form.label :Quantity %></br>
+    <%= form.number_field :quantity %>
+    <% @order.errors.full_messages_for(:quantity).each do |message| %>
+        <%= message %>
+    <% end %>
+</div>
+
+<div>
+    <%= form.label :Total_price %></br>
+    <%= form.number_field :total_price, placeholder: 'Total_price = Product_price * quantity' %>
+    <% @order.errors.full_messages_for(:total_price).each do |message| %>
+        <%= message %>
+    <% end %>
+</div>
+
+<div>
+    <%= form.label :Status %></br>
+    <%= form.select :status, ['booked', 'cancelled'] %>
+    <% @order.errors.full_messages_for(:status).each do |message| %>
+        <%= message %>
+    <% end %>
+</div>
+
+<div>
+    <%= form.label :Product_id %></br>
+    <%= form.select :product_id, Product.all.map { |t| [t.title, t.id]} %>
+    <% @order.errors.full_messages_for(:product_id).each do |message| %>
+        <%= message %>
+    <% end %>
+</div>
+
+<div>
+    <%= form.label :Customer_id %></br>
+    <%= form.select :customer_id, Customer.all.map { |t| [t.fname + " " +t.lname, t.id]} %>
+    <% @order.errors.full_messages_for(:customer_id).each do |message| %>
+        <%= message %>
+    <% end %>
+</div>
+
+<div>
+    <%= form.submit %></br>
+</div>
+<% end %>
+
+

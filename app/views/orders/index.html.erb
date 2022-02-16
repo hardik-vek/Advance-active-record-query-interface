@@ -1,0 +1,42 @@
+
+<center>
+
+  <table >
+    <tr><center>Orders Details </center></tr>
+    <tr><td colspan="5"><center>Orders Details </center></td><td colspan="5">
+    <div>
+    <%= form_tag orders_path, method: :get do %>
+      <%= text_field_tag :search, params[:search], placeholder: 'Search by order status' %>
+      <span >
+        <%= submit_tag "search" %>
+      </span>
+    <% end %>
+    </div></td>
+    </tr>
+
+    <table> 
+        <th>Product title</th>
+        <th colspan='3'>Actions</th>
+        <% @orders.each do |order| %>
+    <tr>
+        <td><%= order.product.title %></td>
+        <td><%= button_to "Show", order_path(order), method: :get%></td>
+        <td><%= button_to "Edit", edit_order_path(order), method: :get%></td>
+        <td><%= button_to "Delete", order_path(order), method: :delete%></td>
+    </tr>
+    <% end %>
+    </table>
+</center>
+
+<center>
+    <div>
+        <%= link_to "new order", new_order_path, method: :get %>
+    </div>
+</center>
+
+<center>
+    <div>
+        <%= link_to "Search Order by product name", orders_search_order_by_product_name_path, method: :get %>
+    </div>
+</center>
+

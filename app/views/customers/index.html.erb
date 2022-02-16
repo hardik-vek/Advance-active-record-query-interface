@@ -1,0 +1,25 @@
+
+<center>
+    <h1>Customer Listing </h1>
+
+    <table> 
+        <th>Full Name</th>
+        <th colspan='3'>Actions</th>
+        <% @customers.each do |customer| %>
+    <tr>
+        <td><%= customer.fname + " " + customer.lname %></td>
+        <td><%= button_to "Show", customer_path(customer), method: :get%></td>
+        <td><%= button_to "Edit", edit_customer_path(customer), method: :get%></td>
+        <td><%= button_to "Delete", customer_path(customer), method: :delete%></td>
+    </tr>
+    <% end %>
+    </table>
+</center>
+
+<center>
+    <div>
+        <%= link_to "new customer", new_customer_path, method: :get %>
+    </div>
+
+</center>
+

@@ -1,0 +1,157 @@
+<div class="center">
+
+    <h2>Products</h2>
+    <%= link_to "Products", products_path, method: :get %>
+
+    <h2>Customers</h2>
+    <%= link_to "Customers", customers_path, method: :get %>
+
+    <h2>Orders</h2>
+    <%= link_to "Orders", orders_path, method: :get %>
+
+</div>
+
+<div>
+    <center>
+        <h2>most sales product by quantity</h2>
+        <% Order.select("customer_id, sum(quantity) as Sum_of_Quantity").group("customer_id").order("Sum_of_Quantity desc").first(3).each do |a| %>
+
+        <p>
+            <strong> Sum of Quantity:</strong>
+            <%= a.Sum_of_Quantity %>
+        </p>
+
+        <p>
+            <strong>First Name:</strong>
+            <%= a.customer.fname %>
+        </p>
+
+        <p>
+            <strong>Last Name:</strong>
+            <%= a.customer.lname %>
+        </p>
+
+        <p>
+            <strong>Email:</strong>
+            <%= a.customer.email%>
+        </p>
+
+        <p>
+            <strong>Phone Number:</strong>
+            <%= a.customer.phone_number %>
+        </p>
+        </br>
+
+        <% end %>
+        
+    </center>
+</div>
+
+<div>
+    <center>
+        <h2>most sales product by price</h2>
+        <% Order.select("customer_id, sum(total_price) as Sum_of_Price").group("customer_id").order("Sum_of_Price desc").first(3).each do |a| %>
+
+        <p>
+            <strong> Sum of price:</strong>
+            <%= a.Sum_of_Price %>
+        </p>
+
+        <p>
+            <strong>First Name:</strong>
+            <%= a.customer.fname %>
+        </p>
+
+        <p>
+            <strong>Last Name:</strong>
+            <%= a.customer.lname %>
+        </p>
+
+        <p>
+            <strong>Email:</strong>
+            <%= a.customer.email%>
+        </p>
+
+        <p>
+            <strong>Phone Number:</strong>
+            <%= a.customer.phone_number %>
+        </p>
+        </br>
+
+        <% end %>
+
+    </center>
+</div>
+
+<div>
+    <center>
+        <h2>most booked order of product</h2>
+        <% Order.group("customer_id").having(status:'booked').first(5).each do |a| %>
+
+        <p>
+            <strong> Total no of booked order:</strong>
+            <%= Order.where(customer_id:a.customer_id).where(status:'booked').count %>
+        </p>
+
+        <p>
+            <strong>First Name:</strong>
+            <%= a.customer.fname %>
+        </p>
+
+        <p>
+            <strong>Last Name:</strong>
+            <%= a.customer.lname %>
+        </p>
+
+        <p>
+            <strong>Email:</strong>
+            <%= a.customer.email%>
+        </p>
+
+        <p>
+            <strong>Phone Number:</strong>
+            <%= a.customer.phone_number %>
+        </p>
+        </br>
+
+        <% end %>
+
+    </center>
+</div>
+
+<div>
+    <center>
+        <h2>most cancelled order of product</h2>
+        <% Order.group("customer_id").having(status:'cancelled').first(5).each do |a| %>
+
+        <p>
+            <strong> Total no of cancelled order:</strong>
+            <%= Order.where(customer_id:a.customer_id).where(status:'cancelled').count %>
+        </p>
+
+        <p>
+            <strong>First Name:</strong>
+            <%= a.customer.fname %>
+        </p>
+
+        <p>
+            <strong>Last Name:</strong>
+            <%= a.customer.lname %>
+        </p>
+
+        <p>
+            <strong>Email:</strong>
+            <%= a.customer.email%>
+        </p>
+
+        <p>
+            <strong>Phone Number:</strong>
+            <%= a.customer.phone_number %>
+        </p>
+        </br>
+
+        <% end %>
+
+    </center>
+</div>
+
